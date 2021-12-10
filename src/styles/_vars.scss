@@ -1,0 +1,17 @@
+$color-primary:   #1B1B1B;
+$color-secondary: #9B51E0;
+$color-white:     #fff;
+$color-black:     #000;
+$color-danger:    #FF0101;
+$color-gray:      #767676;
+
+$zindex-modal: 1055;
+$zindex-fixed: 1030;
+
+$breakpoints: (
+  sm:  576px,
+  md:  768px,
+  lg:  992px,
+  xl:  1200px,
+  xxl: 1440px
+);

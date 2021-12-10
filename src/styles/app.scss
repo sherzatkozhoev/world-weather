@@ -1,0 +1,160 @@
+@import 'vars';
+@import 'mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $color-primary;
+  font-size: 1.4rem;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.35;
+  min-width: 360px;
+
+  @include breakpoint-min(sm) {
+    font-size: 1.6rem;
+  }
+
+  @include breakpoint-min(md) {
+    font-size: 1.8rem;
+  }
+}
+
+.app {
+  margin: 0 auto;
+  padding: 40px 30px;
+  max-width: 1600px;
+  min-height: 100vh;
+
+  @include breakpoint-min(md) {
+    padding: 40px;
+  }
+}
+
+.title {
+  font-weight: 300;
+  font-size: 3.5rem;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @include breakpoint-min(md) {
+    font-size: 5rem;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint-min(lg) {
+    font-size: 7rem;
+  }
+}
+
+.description {
+  color: $color-gray;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @include breakpoint-min(sm) {
+    font-size: 1.8rem;
+  }
+
+  @include breakpoint-min(md) {
+    font-size: 2rem;
+  }
+
+  @include breakpoint-min(lg) {
+    font-size: 2.4rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  color: $color-secondary;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  background: none;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  transition: .25s;
+
+  &:hover,
+  &:focus {
+    color: lighten($color-secondary, 8%);
+  }
+
+  &[disabled] {
+    color: #C1C1C1;
+    pointer-events: none;
+  }
+
+  @include breakpoint-min(sm) {
+    font-size: 1.6rem;
+  }
+}
+
+.btn-add-weather {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, .14), 0 1px 10px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .2);
+  background: $color-secondary;
+  transition: .3s;
+  z-index: $zindex-fixed;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white;
+  }
+
+  &::before {
+    width: 2px;
+    height: 14px;
+  }
+
+  &::after {
+    width: 14px;
+    height: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-secondary, 7%);
+  }
+
+  &.is-hide {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  @include breakpoint-min(sm) {
+    right: 45px;
+    bottom: 35px;
+    width: 56px;
+    height: 56px;
+  }
+}
